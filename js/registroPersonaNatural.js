@@ -95,7 +95,7 @@ function validarDatosUsuario(e) {
 
                         }else{
                             if(username.value === ''){
-
+                                
                                 mensaje.textContent = 'Ingrese Username..!!';
                                 mensaje.style.color = 'red';
                                 username.focus();
@@ -224,14 +224,14 @@ function obtenerEmpresasLocalStorage() {
 }
 
 
-function makeid(length) {
-    var result           = '';
+function generarPassword(length) {
+    var resultado           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
     for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        resultado += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    return result;
+    return resultado;
  }
  
- console.log(makeid(20));
+ console.log(generarPassword(20));
