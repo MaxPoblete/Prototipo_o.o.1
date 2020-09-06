@@ -75,13 +75,19 @@ function validarDatosUsuario(e) {
                     }else{
                       
                         const listaUsuariosRegistrados  = obtenerUsuariosLocalStorage();
+                        const listaEmpresaRegistradas = obtenerEmpresasLocalStorage();
                         const listaRunUsuarios = [];
+                        const listaRunEmpresas = [];
 
                         listaUsuariosRegistrados.forEach(usuario => {
-                            listaRunUsuarios.push(usuario.run);
+                            listaRunEmpresas.push(usuario.run);
                         });
 
-                        if(listaRunUsuarios.includes(run.value)===true){
+                        listaEmpresaRegistradas.forEach(empresa => {
+                            listaRunUsuarios.push(empresa.run);
+                        });
+
+                        if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true){
 
                             mensaje.textContent = 'el rut ingresado ya existe..!!';
                             mensaje.style.color = 'red';
@@ -207,6 +213,25 @@ function contieneEspaciosVacios(cadena) {
     return contiene;
 }
 
+function obtenerEmpresasLocalStorage() {
+    let empresas;
+    if(localStorage.getItem('empresas') === null) {
+         empresas = []; 
+    } else {
+        empresas = JSON.parse(localStorage.getItem('empresas') );
+    }
+    return empresas;
+}
 
 
-
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
+ 
+ console.log(makeid(20));
