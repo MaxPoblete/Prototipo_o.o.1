@@ -1,0 +1,38 @@
+
+
+[REGISTRO EMPRESA]
+
+Para simular el WS del ISS se creo una lista de objetos empresas donde
+se compara el valor ingresado con los existentes
+
+lista de rut para pruebas de validacion de datos
+y registro empresa
+
+1111-1
+2222-2
+3333-3
+4444-4
+5555-5
+
+si el run existe en sistema ISS(simulacion)
+se pide ingresar username y password
+(validaciones basicas)
+
+despues de crear la session de usuario 
+se dirige a inicio.html
+puede cerrar session y abrir con credenciales creadas...
+en index.html vista login 
+
+[PERSONA NATURAL]
+
+se puede ingresar cualquier datos 
+validacion basica
+
+despues de crear la session de usuario 
+se dirige a inicio.html
+puede cerrar session y abrir con credenciales creadas...
+en index.html vista login 
+
+
+
+...................................hola mundo............:)
