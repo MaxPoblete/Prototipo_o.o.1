@@ -33,7 +33,7 @@ function ingresoSistema(e) {
     e.preventDefault();
 
 
-     if(userName.value === ''){
+    if(userName.value === ''){
 
         mensaje.textContent = 'Ingrese Userman Valido';
         console.log('el valor del input username esta vacio');
@@ -73,38 +73,33 @@ function ingresoSistema(e) {
                         passWord.focus();
         
                     }else{    
-                            if(existeEmpresa(userName.value, passWord.value) === true){
+                        if(existeEmpresa(userName.value, passWord.value) === true){
         
                                 sessionStorage.setItem('sesion', userName.value);
                                 console.log('ingresado como usuario tipo Empresa');
-                                 window.location.href = "inicio.html";
+                                window.location.href = "inicio.html";
+        
+                        }else{
+                            if(existeUsuario(userName.value, passWord.value) ===true){
+        
+                                sessionStorage.setItem('sesion', userName.value);
+                                console.log('ingresado como usuario tipo natural');
+                                window.location.href = "inicio.html";
         
                             }else{
-                                if(existeUsuario(userName.value, passWord.value) ===true){
         
-                                    sessionStorage.setItem('sesion', userName.value);
-                                    console.log('ingresado como usuario tipo natural');
-                                     window.location.href = "inicio.html";
-        
-                                }else{
-        
-                                    mensaje.textContent = 'username o password incorrecta';
-                                    console.log('error, credenciales no encontradas');
-                                    mensaje.style.color = 'red'; 
-        
-                                }
+                                mensaje.textContent = 'username o password incorrecta';
+                                console.log('error, credenciales no encontradas');
+                                mensaje.style.color = 'red'; 
         
                             }
+                        }
                     }
                 }
-
             }
-
         }
-
-     }
+    }
 }
-
 
 function existeEmpresa(username, password) {
 
@@ -125,6 +120,7 @@ function existeEmpresa(username, password) {
 function existeUsuario(username, password) {
 
     let existe;
+
     listaUsuariosRegistrados.forEach(usuario => {
         if(usuario.username === username && usuario.password === password){
             existe = true;
@@ -137,39 +133,27 @@ function existeUsuario(username, password) {
     
 }
 
-
 function contieneEspaciosVacios(cadena) {
 
     let  contiene;
     const listaFinal = [];
     const listaCaracteresCadena = cadena.split('');
+
     listaCaracteresCadena.forEach(element => {
         if(element !== ' '){
             listaFinal.push(element);
         }
+
     });
+
         if(listaFinal.length !== listaCaracteresCadena.length ){
             contiene = true;
-            console.log(listaCaracteresCadena.length);
-            console.log(listaFinal.length);
         }else{
             contiene = false;
-            console.log(listaCaracteresCadena.length);
-            console.log(listaFinal.length);
         }
 
-    console.log(contiene);
     return contiene;
 }
-
-
-
-
-
-
-
-
-
 
 function obtenerEmpresasLocalStorage() {
     let Empresas;

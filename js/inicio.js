@@ -15,6 +15,8 @@ function existeSession(e) {
         window.location.href = "index.html";
 
     }else if(sesion != null){
+        //obtener datos del usuario o empresa 
+        //y mostrar una vienvenida 
         console.log('sesion creada ');
         console.log(sesion);
     }
