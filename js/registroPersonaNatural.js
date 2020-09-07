@@ -1,14 +1,14 @@
 const registrar = document.getElementById('registrar');
-
 eventListeners();
 
 function eventListeners() {
 
     registrar.addEventListener('click', validarDatosUsuario);
-
     document.addEventListener('DOMContentLoaded', datosInicio);
 
 }
+
+
 
 const nombre = document.querySelector('#nombre');
 
@@ -29,7 +29,7 @@ let mensaje = document.querySelector('#mensaje');
 function datosInicio() {
 
 nombre.focus();
-
+generar.style.display = 'none';
 }
 
 
@@ -89,13 +89,18 @@ function validarDatosUsuario(e) {
 
                         if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true){
 
-                            mensaje.textContent = 'el rut ingresado ya existe..!!';
+                            mensaje.textContent = 'rut ingresado ya existe..!!';
                             mensaje.style.color = 'red';
                             run.focus();
 
                         }else{
+
+                            const generar = document.getElementById('generar');
+                            generar.style.display = '';
+                            generar.addEventListener('click',generarPassword);
+
                             if(username.value === ''){
-                                
+
                                 mensaje.textContent = 'Ingrese Username..!!';
                                 mensaje.style.color = 'red';
                                 username.focus();
@@ -224,14 +229,16 @@ function obtenerEmpresasLocalStorage() {
 }
 
 
-function generarPassword(length) {
+function generarPassword() {
+
     var resultado           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
+    for ( var i = 0; i < 10; i++ ) {
         resultado += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    return resultado;
+    password.value = resultado;
+    console.log(resultado);
+    
  }
  
- console.log(generarPassword(20));

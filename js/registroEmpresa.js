@@ -78,7 +78,7 @@ function validarRunEmpresa(e) {
         
                 if(listarunRegistrados.includes(run.value)===true){
 
-                    mensaje.textContent = 'Empresa Ya Esta Registrada Inicia session...!';
+                    mensaje.textContent = 'Empresa Ya Esta Registrada, puedes Iniciar session...!';
                     mensaje.style.color = 'yellow';
                     existeRegistro.style.display = '';
                     run.focus();
