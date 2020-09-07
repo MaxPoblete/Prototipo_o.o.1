@@ -31,6 +31,7 @@ function datosInicio() {
 
 nombre.focus();
 generar.style.display = 'none';
+
 }
 
 
@@ -163,17 +164,12 @@ function validarDatosUsuario(e) {
                                                     window.location.href = "inicio.html";
             
                                                 }
-    
                                             }
-    
                                         }
                                     }
-    
                                 }
                             }
-
                         }
-
                     }
                 }
             }
@@ -181,22 +177,26 @@ function validarDatosUsuario(e) {
     }
 }
 
-
 function agregarUsuarioLocalStorage(usuario) {
+
     let usuarios;
     usuarios = obtenerUsuariosLocalStorage();
     usuarios.push(usuario);
     localStorage.setItem('usuarios', JSON.stringify(usuarios) );
+
 }
 
 function obtenerUsuariosLocalStorage() {
+
     let usuarios;
+
     if(localStorage.getItem('usuarios') === null) {
         usuarios = []; 
     } else {
         usuarios = JSON.parse(localStorage.getItem('usuarios') );
     }
     return usuarios;
+
 }
 
 function contieneEspaciosVacios(cadena) {
@@ -204,28 +204,32 @@ function contieneEspaciosVacios(cadena) {
     let  contiene;
     const listaFinal = [];
     const listaCaracteresCadena = cadena.split('');
+
     listaCaracteresCadena.forEach(element => {
         if(element !== ' '){
             listaFinal.push(element);
         }
     });
+
         if(listaFinal.length !== listaCaracteresCadena.length ){
             contiene = true;
         }else{
             contiene = false;
         }
 
-    console.log(contiene);
-    return contiene;
+        return contiene;
 }
 
 function obtenerEmpresasLocalStorage() {
+
     let empresas;
+
     if(localStorage.getItem('empresas') === null) {
          empresas = []; 
     } else {
         empresas = JSON.parse(localStorage.getItem('empresas') );
     }
+
     return empresas;
 }
 
@@ -235,10 +239,17 @@ function generarPassword() {
     var resultado = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
+    
     for ( var i = 0; i < 10; i++ ) {
         resultado += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+
     password.value = resultado;
     console.log(resultado);
     
  }
+<<<<<<< HEAD
+=======
+ 
+  
+>>>>>>> a5f14190fa18c8cecd3bba20bdbc9d5ea6de7aa2
