@@ -4,6 +4,7 @@ eventListeners();
 function eventListeners() {
 
     registrar.addEventListener('click', validarDatosUsuario);
+
     document.addEventListener('DOMContentLoaded', datosInicio);
 
 }
@@ -231,8 +232,8 @@ function obtenerEmpresasLocalStorage() {
 
 function generarPassword() {
 
-    var resultado           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var resultado = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
     for ( var i = 0; i < 10; i++ ) {
         resultado += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -241,4 +242,3 @@ function generarPassword() {
     console.log(resultado);
     
  }
- 

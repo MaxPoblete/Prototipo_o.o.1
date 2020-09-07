@@ -65,6 +65,7 @@ function validarRunEmpresa(e) {
 
             mensaje.textContent = 'Run no existe en registro Iss';
             mensaje.style.color = 'red';
+            existeRegistro.style.display = 'none';
             run.focus();
 
         }else{
