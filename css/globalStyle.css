@@ -94,17 +94,3 @@ color: white;
 .links a{
 margin-left: 4px;
 }
-
-.camionBomba {
-  width: 100px;
-  height: 100px;
-  margin-top:-100px;
-  position: relative;
-  animation: mymove 15s infinite;
-}
-
-@keyframes mymove {
-  from {right:  -105%;}
-  to {right:  30%;}
-
-}
