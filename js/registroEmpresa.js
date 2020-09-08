@@ -1,10 +1,10 @@
 //lista para simular ws de iss para validar empresa y obtener sus datos :)
 const listaEmpresasIss = [
-    {nombre : "Empresa Uno ",run : "1111-1",razonSocial : "construccion",telefono :"911111", correo : "EmpresaUno@gmail.com", username :'',password:''},
-    {nombre : "Empresa dos ",run : "2222-2",razonSocial : "construccion",telefono :"911111", correo : "EmpresaDos@gmail.com", username :'',password:''},
-    {nombre : "Empresa tres ",run : "3333-3",razonSocial : "construccion",telefono :"911111", correo : "EmpresaTres@gmail.com", username :'',password:''},
-    {nombre : "Empresa cuatro ",run : "4444-4",razonSocial : "construccion",telefono :"911111", correo : "EmpresaCuadro@gmail.com", username :'',password:''},
-    {nombre : "Empresa cinco ",run : "5555-5",razonSocial : "construccion",telefono :"955555", correo : "Empresacinco@gmail.com", username :'',password:''}
+    {nombre : "Empresa Uno ",run : "111111111",razonSocial : "construccion",telefono :"911111", correo : "EmpresaUno@gmail.com", username :'',password:''},
+    {nombre : "Empresa dos ",run : "222222222",razonSocial : "construccion",telefono :"911111", correo : "EmpresaDos@gmail.com", username :'',password:''},
+    {nombre : "Empresa tres ",run : "333333333",razonSocial : "construccion",telefono :"911111", correo : "EmpresaTres@gmail.com", username :'',password:''},
+    {nombre : "Empresa cuatro ",run : "444444444",razonSocial : "construccion",telefono :"911111", correo : "EmpresaCuadro@gmail.com", username :'',password:''},
+    {nombre : "Empresa cinco ",run :  "555555555",razonSocial : "construccion",telefono :"955555", correo : "Empresacinco@gmail.com", username :'',password:''}
 ]
 
 const consultar = document.querySelector('#consultar');
@@ -46,7 +46,7 @@ function validarRunEmpresa(e) {
 
     e.preventDefault();
 
-    if(run.value === ''){
+    if(run.value === '' || run.value.trim()=== ''){
 
         mensaje.textContent = 'ingrese run valido';
         mensaje.style.color = 'red';

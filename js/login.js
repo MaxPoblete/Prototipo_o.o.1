@@ -33,11 +33,12 @@ function ingresoSistema(e) {
     e.preventDefault();
 
 
-    if(userName.value === ''){
+    if(userName.value === '' ||  userName.value.trim() === ''){
 
         mensaje.textContent = 'Ingrese Userman Valido';
         console.log('el valor del input username esta vacio');
         userName.focus();
+        userName.value = '';
         mensaje.style.color = 'red';
 
     }else{
@@ -49,11 +50,12 @@ function ingresoSistema(e) {
             mensaje.style.color = 'red';
 
         }else{
-            if(passWord.value === ''){
+            if(passWord.value === '' ||  passWord.value.trim() === ''){
 
                 mensaje.textContent = 'Ingrese password Valido';
                 console.log('el valor del input password esta vacio');
                 passWord.focus();
+                passWord.value = '';
                 mensaje.style.color = 'red';
     
             }else{
