@@ -147,10 +147,14 @@ function validarDatosUsuario(e) {
                                                         run.focus();
         
                                                     }else{
+
                                                         const listaUsuariosRegistrados  = obtenerUsuariosLocalStorage();
                                                         const listaEmpresaRegistradas = obtenerEmpresasLocalStorage();
+                                                        const listaEmpresasISS = obtenerEmpresasISSLocalStorage();
+
                                                         const listaRunUsuarios = [];
                                                         const listaRunEmpresas = [];
+                                                        const listaRunEmpresasISS = [];
                                 
                                                         listaUsuariosRegistrados.forEach(usuario => {
                                                             listaRunEmpresas.push(usuario.run);
@@ -159,8 +163,12 @@ function validarDatosUsuario(e) {
                                                         listaEmpresaRegistradas.forEach(empresa => {
                                                             listaRunUsuarios.push(empresa.run);
                                                         });
-                                
-                                                        if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true){
+
+                                                        listaEmpresasISS.forEach(empresaiss => {
+                                                            listaRunEmpresasISS.push(empresaiss.run);
+                                                        });
+console.log(listaRunEmpresasISS);
+                                                        if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true || listaRunEmpresasISS.includes(run.value)===true){
                                 
                                                             mensaje.textContent = 'Rut ingresado ya existe..!!';
                                                             mensaje.style.color = 'red';
@@ -339,4 +347,15 @@ function generarPassword() {
 
   }
 
+  function obtenerEmpresasISSLocalStorage() {
 
+    let listaEmpresasISS;
+
+    if(localStorage.getItem('listaEmpresasISS') === null) {
+        listaEmpresasISS = []; 
+    } else {
+        listaEmpresasISS = JSON.parse(localStorage.getItem('listaEmpresasISS') );
+    }
+    
+    return listaEmpresasISS;
+}
