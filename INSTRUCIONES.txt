@@ -1,5 +1,13 @@
 
 
+[LONGIN COMO ADMIN]
+
+para ingresar a la vista de administrador 
+credenciales
+username : admin
+password : 1234
+__________________________________________________________________
+
 [REGISTRO EMPRESA]
 
 Para simular el WS del ISS se creo una lista de objetos empresas donde
@@ -23,6 +31,8 @@ despues de crear la session de usuario
 se dirige a inicio.html
 puede cerrar session y abrir con credenciales creadas...
 en index.html vista login 
+
+______________________________________________________________________________________
 
 [PERSONA NATURAL]
 

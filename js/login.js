@@ -67,33 +67,41 @@ function ingresoSistema(e) {
                     mensaje.style.color = 'red';
 
                 }else{
-                    if(listaEmpresasRegistrardas.length === 0 && listaUsuariosRegistrados.length === 0){
-    
-                        mensaje.textContent = 'Sin Conexion Intente mas tarde..!!';
-                        console.log('lista Empresas vacia, simula error al cargar datos de back-end..');
-                        mensaje.style.color = 'red';
-                        passWord.focus();
+                    if( userName.value === 'admin' && passWord.value === '1234'){
+                        sessionStorage.setItem('sesion', userName.value);
+                        console.log('ingresado como usuario tipo natural');
+                        window.location.href = "admin.html";
         
                     }else{    
-                        if(existeEmpresa(userName.value, passWord.value) === true){
-        
+                        if(listaEmpresasRegistrardas.length === 0 && listaUsuariosRegistrados.length === 0){
+                            
+                            mensaje.textContent = 'Sin Conexion Intente mas tarde..!!';
+                            console.log('lista Empresas vacia, simula error al cargar datos de back-end..');
+                            mensaje.style.color = 'red';
+                            passWord.focus();                
+
+
+                        }else{
+                            if(existeEmpresa(userName.value, passWord.value) === true){
+
                                 sessionStorage.setItem('sesion', userName.value);
                                 console.log('ingresado como usuario tipo Empresa');
                                 window.location.href = "inicio.html";
-        
-                        }else{
-                            if(existeUsuario(userName.value, passWord.value) ===true){
-        
-                                sessionStorage.setItem('sesion', userName.value);
-                                console.log('ingresado como usuario tipo natural');
-                                window.location.href = "inicio.html";
-        
+
                             }else{
+
+                                if(existeUsuario(userName.value, passWord.value) ===true){
         
-                                mensaje.textContent = 'username o password incorrecta';
-                                console.log('error, credenciales no encontradas');
-                                mensaje.style.color = 'red'; 
-        
+                                    sessionStorage.setItem('sesion', userName.value);
+                                    console.log('ingresado como usuario tipo natural');
+                                    window.location.href = "inicio.html";
+            
+                                }else{
+            
+                                    mensaje.textContent = 'username o password incorrecta';
+                                    console.log('error, credenciales no encontradas');
+                                    mensaje.style.color = 'red'; 
+                                }
                             }
                         }
                     }

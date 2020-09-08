@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Exconstructor</h2>
+        <p>HAS INGRESADO COMO ADMIN</p>
+
+        <div class="row">
+            <div class="col-2">
+                <div class="tab">
+                    <button class="tablinks" onmouseover="openCity(event, 'London')">Empresas</button>
+                    <button class="tablinks" onmouseover="openCity(event, 'Paris')">Usuarios</button>
+                    <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">EmpresasISS</button>
+                  </div>
+            </div>
+            <div class="col-10">
+                <div id="London" class="tabcontent">
+                    <h2>Mantenedor</h2>
+                
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
+                    
+                    <table id="myTable">
+                      <tr class="header">
+                        <th>Nombre Empresa</th>
+                        <th>run</th>
+                        <th>Razon Social</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
+                      </tr>
+                      <tr>
+                        <td>Empresa Uno</td>
+                        <td>1111111111</td>
+                        <td>construccion </td>
+                        <td>92222222</td>
+                        <td>empresa.uno@gmail.com</td>
+                        <td> <a href="#">Actualizar</a></td>
+                        <td><a href="#">Actualizar</a></td>
+                      </tr>
+                    </table>
+                </div>
+                
+                <div id="Paris" class="tabcontent">
+                  <h3>Paris</h3>
+                  <p>Paris is the capital of France.</p> 
+                </div>
+                
+                <div id="Tokyo" class="tabcontent">
+                  <h3>Tokyo</h3>
+                  <p>Tokyo is the capital of Japan.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+   
+</body>
+<script src="js/admin.js"></script>
+</html> 
