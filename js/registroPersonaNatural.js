@@ -58,6 +58,7 @@ function validarDatosUsuario(e) {
 
                 mensaje.textContent = 'Ingrese Apellido Valido Por Favor..!!';
                 mensaje.style.color = 'red';
+                apellido.value = '';
                 apellido.focus();
     
             }else{
@@ -65,119 +66,159 @@ function validarDatosUsuario(e) {
     
                     mensaje.textContent = 'Ingrese Telefono Valido Por Favor..!!';
                     mensaje.style.color = 'red';
+                    telefono.value = '';
                     telefono.focus();
     
                 }else{
-                    if(correo.value === '' || correo.value.trim() === ''){
+                    if(correo.value === ''){
     
                         mensaje.textContent = 'Ingrese Correo Valido Por Favor..!!';
                         mensaje.style.color = 'red';
                         correo.focus();
     
                     }else{
-                        if(run.value === '' || run.value.trim() === ''){
-    
-                            mensaje.textContent = 'Ingrese run..!!';
+                        if(contieneEspaciosVacios(correo.value)===true){
+
+                            mensaje.textContent = 'Correo no puede contener Espacios vacios..!!';
                             mensaje.style.color = 'red';
-                            run.focus();
-    
+                            correo.value = '';
+                            correo.focus();
+
                         }else{
-                          
-                            const listaUsuariosRegistrados  = obtenerUsuariosLocalStorage();
-                            const listaEmpresaRegistradas = obtenerEmpresasLocalStorage();
-                            const listaRunUsuarios = [];
-                            const listaRunEmpresas = [];
-    
-                            listaUsuariosRegistrados.forEach(usuario => {
-                                listaRunEmpresas.push(usuario.run);
-                            });
-    
-                            listaEmpresaRegistradas.forEach(empresa => {
-                                listaRunUsuarios.push(empresa.run);
-                            });
-    
-                            if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true){
-    
-                                mensaje.textContent = 'rut ingresado ya existe..!!';
+                            if(validarEmail(correo.value)===false){
+
+                                mensaje.textContent = 'Revise formato de correo ingresado..!!';
                                 mensaje.style.color = 'red';
-                                run.focus();
+                                correo.focus(); 
     
                             }else{
-    
-                                const generar = document.getElementById('generar');
-                                generar.style.display = '';
-                                generar.addEventListener('click',generarPassword);
-    
-                                if(username.value === ''){
-    
-                                    mensaje.textContent = 'Ingrese Username..!!';
+                                if(run.value === '' ){
+        
+                                    mensaje.textContent = 'Ingrese run..!!';
                                     mensaje.style.color = 'red';
-                                    username.focus();
-        
+                                    run.focus();
+            
                                 }else{
-                                    if(contieneEspaciosVacios(username.value)===true){
-        
-                                        mensaje.textContent = 'Username no puede Contener Espacios Vacios..!!';
+                                    if(contieneEspaciosVacios(run.value)===true){
+
+                                        mensaje.textContent = 'Run no puede tener Estacios vacios..!!';
                                         mensaje.style.color = 'red';
-                                        username.focus();
-        
+                                        run.value = '';
+                                        run.focus();
+
                                     }else{
-                                        if(username.value.length < 8 || username.value.length > 20){
-        
-                                            mensaje.textContent = 'Username Debe contener entre 8 y 20 caracteres';
+                                        if(isNaN(run.value)===true){
+
+                                            mensaje.textContent = 'no es numero!!';
                                             mensaje.style.color = 'red';
-                                            username.focus();
-        
+                                            run.value = '';
+                                            run.focus();
+
                                         }else{
-                                            if(password.value === ''){
-        
-                                                mensaje.textContent = 'password Debe ser Mayor o Igual A 8 ..!!';
+                                            const listaUsuariosRegistrados  = obtenerUsuariosLocalStorage();
+                                            const listaEmpresaRegistradas = obtenerEmpresasLocalStorage();
+                                            const listaRunUsuarios = [];
+                                            const listaRunEmpresas = [];
+                    
+                                            listaUsuariosRegistrados.forEach(usuario => {
+                                                listaRunEmpresas.push(usuario.run);
+                                            });
+                    
+                                            listaEmpresaRegistradas.forEach(empresa => {
+                                                listaRunUsuarios.push(empresa.run);
+                                            });
+                    
+                                            if(listaRunUsuarios.includes(run.value)===true || listaRunEmpresas.includes(run.value)===true){
+                    
+                                                mensaje.textContent = 'rut ingresado ya existe..!!';
                                                 mensaje.style.color = 'red';
-                                                password.focus();
-            
+                                                run.focus();
+                    
                                             }else{
-                                                if(contieneEspaciosVacios(password.value)===true){
-        
-                                                    mensaje.textContent = 'password no puede contener espacios vacios..!!';
+                    
+                                                const generar = document.getElementById('generar');
+                                                generar.style.display = '';
+                                                generar.addEventListener('click',generarPassword);
+                    
+                                                if(username.value === ''){
+                    
+                                                    mensaje.textContent = 'Ingrese Username..!!';
                                                     mensaje.style.color = 'red';
-                                                    password.focus();
-        
+                                                    username.focus();
+                        
                                                 }else{
-                                                    if(password.value.length < 8 || password.value.length > 20){
-            
-                                                        mensaje.textContent = 'password Debe ser Mayor o Igual A 8';
+                                                    if(contieneEspaciosVacios(username.value)===true){
+                        
+                                                        mensaje.textContent = 'Username no puede Contener Espacios Vacios..!!';
                                                         mensaje.style.color = 'red';
-                                                        password.focus();
-                
+                                                        username.focus();
+                        
                                                     }else{
-            
-                                                        const usuario = {
-                
-                                                            nombre:  nombre.value,
-                                                            apellido:apellido.value,
-                                                            correo:  correo.value,
-                                                            telefono:telefono.value,
-                                                            run:run.value,
-                                                            username:username.value,
-                                                            password:password.value
-                
+                                                        if(username.value.length < 8 || username.value.length > 20){
+                        
+                                                            mensaje.textContent = 'Username Debe contener entre 8 y 20 caracteres';
+                                                            mensaje.style.color = 'red';
+                                                            username.focus();
+                        
+                                                        }else{
+                                                            if(password.value === ''){
+                        
+                                                                mensaje.textContent = 'password Debe ser Mayor o Igual A 8 ..!!';
+                                                                mensaje.style.color = 'red';
+                                                                password.focus();
+                            
+                                                            }else{
+                                                                if(contieneEspaciosVacios(password.value)===true){
+                        
+                                                                    mensaje.textContent = 'password no puede contener espacios vacios..!!';
+                                                                    mensaje.style.color = 'red';
+                                                                    password.focus();
+                        
+                                                                }else{
+                                                                    if(password.value.length < 8 || password.value.length > 20){
+                            
+                                                                        mensaje.textContent = 'password Debe ser Mayor o Igual A 8';
+                                                                        mensaje.style.color = 'red';
+                                                                        password.focus();
+                                
+                                                                    }else{
+                            
+                                                                        const usuario = {
+                                
+                                                                            nombre:  nombre.value,
+                                                                            apellido:apellido.value,
+                                                                            correo:  correo.value,
+                                                                            telefono:telefono.value,
+                                                                            run:run.value,
+                                                                            username:username.value,
+                                                                            password:password.value
+                                
+                                                                        }
+                                
+                                                                        const listaUsuarios = [];
+                                                                        listaUsuarios.push(usuario);
+                                
+                                                                        agregarUsuarioLocalStorage(usuario);
+                                                                        sessionStorage.setItem('sesion', username.value);
+                                                                        window.location.href = "inicio.html";
+                                
+                                                                    }
+                                                                }
+                                                            }
                                                         }
-                
-                                                        const listaUsuarios = [];
-                                                        listaUsuarios.push(usuario);
-                
-                                                        agregarUsuarioLocalStorage(usuario);
-                                                        sessionStorage.setItem('sesion', username.value);
-                                                        window.location.href = "inicio.html";
-                
                                                     }
                                                 }
                                             }
                                         }
+
                                     }
+                                  
+
                                 }
                             }
+
                         }
+
                     }
                 }
             }
@@ -257,3 +298,14 @@ function generarPassword() {
     console.log(resultado);
     
  }
+
+ function validarEmail(valor) {
+
+    if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
+    return true;
+    } else {
+     return false;
+    }
+  }
+
+
