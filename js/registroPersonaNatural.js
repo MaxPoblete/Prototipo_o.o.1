@@ -27,14 +27,13 @@ const password = document.querySelector('#password');
 
 let mensaje = document.querySelector('#mensaje');
 
+
 function datosInicio() {
 
 nombre.focus();
 generar.style.display = 'none';
 
 }
-
-
 
 function validarDatosUsuario(e) {
 
@@ -248,8 +247,3 @@ function generarPassword() {
     console.log(resultado);
     
  }
-<<<<<<< HEAD
-=======
- 
-  
->>>>>>> a5f14190fa18c8cecd3bba20bdbc9d5ea6de7aa2
