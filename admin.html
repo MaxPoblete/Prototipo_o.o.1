@@ -13,45 +13,40 @@
         <div class="row">
             <div class="col-2">
                 <div class="tab">
-                    <button class="tablinks" onmouseover="openCity(event, 'London')">Empresas</button>
-                    <button class="tablinks" onmouseover="openCity(event, 'Paris')">Usuarios</button>
-                    <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">EmpresasISS</button>
+                    <button class="tablinks" onmouseover="openCity(event, 'empresas')">Empresas</button>
+                    <button class="tablinks" onmouseover="openCity(event, 'usuarios')">Usuarios</button>
+                    <button class="tablinks" onmouseover="openCity(event, 'empresasISS')">EmpresasISS</button>
                   </div>
             </div>
             <div class="col-10">
-                <div id="London" class="tabcontent">
+                <div id="empresas" class="tabcontent">
                     <h2>Mantenedor</h2>
                 
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar">
                     
                     <table id="myTable">
-                      <tr class="header">
-                        <th>Nombre Empresa</th>
-                        <th>run</th>
-                        <th>Razon Social</th>
-                        <th>Telefono</th>
-                        <th>Email</th>
-                        <th>Actualizar</th>
-                        <th>Eliminar</th>
-                      </tr>
-                      <tr>
-                        <td>Empresa Uno</td>
-                        <td>1111111111</td>
-                        <td>construccion </td>
-                        <td>92222222</td>
-                        <td>empresa.uno@gmail.com</td>
-                        <td> <a href="#">Actualizar</a></td>
-                        <td><a href="#">Eliminar</a></td>
-                      </tr>
+                        <thead>
+                            <tr >
+                                <th>Nombre Empresa</th>
+                                <th>run</th>
+                                <th>Razon Social</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Actualizar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+ 
+
                     </table>
                 </div>
                 
-                <div id="Paris" class="tabcontent">
+                <div id="usuarios" class="tabcontent">
                   <h3>Usuarios naturales</h3>
                   <p>lista de usuarios naturales</p> 
                 </div>
                 
-                <div id="Tokyo" class="tabcontent">
+                <div id="empresasISS" class="tabcontent">
                   <h3>Empresas Iss</h3>
                   <p>lista empresas simulasion iss</p>
                 </div>
