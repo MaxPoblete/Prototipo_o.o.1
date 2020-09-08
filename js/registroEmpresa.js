@@ -166,10 +166,8 @@ function ingresarCredenciales(e) {
                             });
         
                             const largoLista =  listaUsuariosSistema.length-1;
-                            
                             Object.defineProperty(listaUsuariosSistema[largoLista], "username", {value:username.value})
                             Object.defineProperty(listaUsuariosSistema[largoLista], "password", {value:password.value})
-        
                             agregarEmpresaLocalStorage(listaUsuariosSistema[largoLista]);
                             sessionStorage.setItem('sesion', listaUsuariosSistema[largoLista].username);
                             let sesion = sessionStorage.getItem('sesion');
@@ -177,25 +175,25 @@ function ingresarCredenciales(e) {
                             window.location.href = "inicio.html";
                         }
                     }
-
                 }
             }
-
         }
-
     }
 }
 
-
 function agregarEmpresaLocalStorage(empresa) {
+
     let empresas;
+
     empresas = obtenerEmpresasLocalStorage();
     empresas.push(empresa);
     localStorage.setItem('empresas', JSON.stringify(empresas) );
 }
 
 function obtenerEmpresasLocalStorage() {
+
     let empresas;
+
     if(localStorage.getItem('empresas') === null) {
          empresas = []; 
     } else {
@@ -208,18 +206,20 @@ function contieneEspaciosVacios(cadena) {
 
     let  contiene;
     const listaFinal = [];
-
     const listaCaracteresCadena = cadena.split('');
     
     listaCaracteresCadena.forEach(element => {
         if(element !== ' '){
             listaFinal.push(element);
         }
+
     });
+
         if(listaFinal.length !== listaCaracteresCadena.length ){
             contiene = true;
         }else{
             contiene = false;
         }
+
     return contiene;
 }

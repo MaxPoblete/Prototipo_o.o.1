@@ -157,7 +157,7 @@ function contieneEspaciosVacios(cadena) {
 
 function obtenerEmpresasLocalStorage() {
     let Empresas;
-    // Revisamos los valoes de local storage
+
     if(localStorage.getItem('empresas') === null) {
         empresas = []; 
     } else {
@@ -168,7 +168,7 @@ function obtenerEmpresasLocalStorage() {
 
 function obtenerUsuariosLocalStorage() {
     let usuarios;
-    // Revisamos los valoes de local storage
+
     if(localStorage.getItem('usuarios') === null) {
         usuarios = []; 
     } else {
